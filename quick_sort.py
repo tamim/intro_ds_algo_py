@@ -1,14 +1,18 @@
+from random import randrange
+
+
 def partition(L, low, high):
-	pivot = L[high]
+    pivot_position = randrange(low, high + 1)
+    L[pivot_position], L[high] = L[high], L[pivot_position]
 
-	i = low - 1
-	for j in range(low, high):
-		if L[j] < pivot:
-			i += 1
-			L[i], L[j] = L[j], L[i]
+    i = low - 1
+    for j in range(low, high):
+        if L[j] < L[high]:
+            i += 1
+            L[i], L[j] = L[j], L[i]
 
-	L[i+1], L[high] = L[high], L[i+1]
-	return i+1
+    L[high], L[i + 1] = L[i + 1], L[high]
+    return i + 1
 
 
 def quick_sort(L, low, high):
