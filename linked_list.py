@@ -14,7 +14,7 @@ class LinkedList:
     def __repr__(self):
         nodes = []
         current_node = self.head.next
-        while current_node is not None:
+        while current_node:
             nodes.append(repr(current_node))
             current_node = current_node.next
         return ",".join(nodes)
@@ -27,7 +27,7 @@ class LinkedList:
             return
 
         current_node = self.head.next
-        while current_node.next is not None:
+        while current_node.next:
             current_node = current_node.next
 
         current_node.next = node
@@ -38,7 +38,7 @@ class LinkedList:
 
     def insert(self, data, new_data):
         current_node = self.head.next
-        while current_node is not None:
+        while current_node:
             if current_node.data == data:
                 new_node = Node(new_data, current_node.next)
                 current_node.next = new_node
@@ -47,20 +47,22 @@ class LinkedList:
 
     def search(self, item):
         current_node = self.head.next
-        while current_node is not None:
+        while current_node:
             if current_node.data == item:
                 return current_node
             current_node = current_node.next
         return None
 
+
     def remove(self, item):
         previous_node = self.head
         current_node = previous_node.next
-        while current_node is not None:
+        while current_node:
             if current_node.data == item:
                 break
             previous_node = current_node
             current_node = current_node.next
+        
         if current_node is None:
             return None
         
