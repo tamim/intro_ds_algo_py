@@ -36,7 +36,7 @@ if __name__ == "__main__":
     q.enqueue("Rafi")
     q.enqueue("Tamim")
     q.enqueue("Subeen")
-    while q.is_empty() is False:
+    while not q.is_empty():
         person = q.dequeue()
         print(person)
     q.enqueue("Subeen")
